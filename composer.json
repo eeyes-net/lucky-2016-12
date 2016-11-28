@@ -1,0 +1,27 @@
+{
+    "name": "eeyes-net/lucky-2016-12",
+    "description": "Lucky draw for www-wxscreen-com",
+    "type": "project",
+    "keywords": [
+        "lucky draw"
+    ],
+    "homepage": "http://lucky.eeyes.net/",
+    "license": "AGPL-3.0",
+    "authors": [
+        {
+            "name": "ganlv",
+            "email": "ganlvtech@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "topthink/framework": "^5.0",
+        "topthink/think-image": "^1.0"
+    },
+    "extra": {
+        "think-path": "thinkphp"
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}

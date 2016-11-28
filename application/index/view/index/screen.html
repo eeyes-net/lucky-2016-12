@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/screen.css" />
+    <style>
+        body {
+            background: url(__IMG__/{$bg}) fixed 0 no-repeat;
+            background-size: cover;
+        }
+        header h1 {
+            background-color: rgba({$color.r}, {$color.b}, {$color.g}, .3);
+        }
+        #btn-start {
+            background-color: rgba({$color.r}, {$color.b}, {$color.g}, .5);
+        }
+        .box {
+            background-color: rgba({$color.r}, {$color.b}, {$color.g}, .5);
+        }
+        .box-final {
+            background-color: rgba({$color.r}, {$color.b}, {$color.g}, .8);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="__PUBLIC__/images/eeyes_logo.png">
+        <div class="vertical-wrapper">
+            <h1>{$title}</h1>
+        </div>
+        <button id="btn-start">开始抽奖</button>
+    </header>
+    <main><div id="container"></div></main>
+    <script src="__PUBLIC__/js/lucky.js"></script>
+    <script src="__PUBLIC__/js/script.js"></script>
+    <script>
+         init({$user|json_encode});
+    </script>
+</body>
+</html>

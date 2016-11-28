@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #eee;
+    font-family: 微软雅黑, 黑体, sans-serif;
+    font-size: 22px;
+}
+header {
+    background-color: #123;
+}
+header section {
+    margin: auto;
+    max-width: 1280px;
+}
+header section h1 {
+    float: left;
+    margin-left: 1em;
+    height: 1em;
+    color: #eee;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 3em;
+}
+header a.logo {
+    display: block;
+    float: right;
+    padding: 0 1em;
+    height: 3em;
+    line-height: 3em;
+}
+header img.logo {
+    height: 1em;
+}
+header section nav a {
+    display: block;
+    float: right;
+    padding: 0 1.5em;
+    height: 4.5em;
+    color: #ccc;
+    background-color: #223;
+    font-size: .667em;
+    font-family: 宋体, serif;
+    line-height: 4.5em;
+    text-decoration: none;
+}
+.banner {
+    background: url(../images/banner.jpg) no-repeat center center;
+    background-size: auto 100%;
+    width: 100%;
+    height: 20em;
+}
+.create {
+    padding: 2em;
+}
+.create h1 {
+    text-align: center;
+    font-weight: normal;
+}
+table {
+    margin: 1em auto;
+    font-family: 宋体, serif;
+}
+td {
+    padding: .5em;
+}
+input {
+    padding: .3em;
+    width: 20em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: .1em;
+}
+input[type="submit"] {
+    display: block;
+    margin: auto;
+    background-color: #bcd;
+}
+footer {
+    padding: 3em 0;
+    text-align: center;
+}
+footer img {
+    height: .7em;
+}

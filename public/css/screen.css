@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #012;
+    font-family: 微软雅黑, 黑体, sans-serif;
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+header {
+    position: relative;
+    height: 20%;
+}
+.logo {
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    max-width: 20%;
+    height: 60%;
+}
+header h1 {
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    width: 40%;
+    height: 60%;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .3);
+    text-align: center;
+    text-shadow: 4px 0px 6px #333, 0px 0px 6px #333, 0px -4px 6px #333, 4px -4px 6px #333;
+    line-height: .12rem;
+    font-size: .06rem;
+}
+#btn-start {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 15%;
+    height: 60%;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5);
+    border: 1px solid #fc6;
+    font-size: .04rem;
+    font-family: 微软雅黑, 黑体, sans-serif;
+}
+main {
+    height: 80%;
+    overflow-y: auto;
+}
+main::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+main::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background-color: #ccc;
+}
+main::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, .3);
+}
+#container {
+    padding: 10em 5%;
+    line-height: 0;
+    text-align: center;
+    font-size: 16px;
+    vertical-align: top;
+}
+.box {
+    display: inline-block;
+    margin: 2px 1px 0;
+    overflow: hidden;
+    width: 8em;
+    background-color: rgba(0, 0, 0, .5);
+    border: 1px solid #6cf;
+    border-radius: .3em;
+    font-weight: bold;
+}
+.box p {
+    height: 3em;
+    line-height: 3em;
+    white-space: nowrap;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000, -1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000;
+}
+.box img {
+    margin: 1em;
+    width: 5em;
+    height: 5em;
+}
+.box-big {
+    transform: scale(1.5);
+}
+.box-final {
+    transform: scale(2.5);
+    background-color: rgba(0, 0, 0, .8);
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微信大屏幕抽奖 - e瞳网</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/index.css"/>
+</head>
+<body>
+    <header>
+        <section>
+            <h1>微信大屏幕抽奖 - e瞳网</h1>
+            <a class="logo" href="http://www.eeyes.net"><img class="logo" src="__PUBLIC__/images/eeyes_logo_inline.png"></a>
+            <nav>
+                <a target="_blank" href="{:url('index/index/screen', ['name' => 'wxscreen'])}">抽奖页演示</a>
+            </nav>
+            <div style="clear:both"></div>
+        </section>
+    </header>
+    <main>
+        <section class="banner" onclick="scrollTo(0, document.getElementsByClassName('create')[0].offsetTop)"></section>
+        <section class="create">
+            <h1>创建新的抽奖页</h1>
+            <form action="{:url('index/index/createScreen')}" enctype="multipart/form-data" method="post">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>选择背景图片（2M以下，jpg/png）：</td>
+                            <td><input type="file" name="image" accept="image/png, image/jpeg, image/gif"/></td>
+                        </tr>
+                        <tr>
+                            <td>请填写网页标题：</td>
+                            <td><input type="text" name="title" placeholder="如：微信大屏幕抽奖"/></td>
+                        </tr>
+                        <tr>
+                            <td>请粘贴微信大屏幕所在网址：</td>
+                            <td><input type="text" name="url" placeholder="如：http://p.wxscreen.com/wxscreen/message"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="submit" value="创建抽奖页"/>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <a href="https://github.com/eeyes-net" target="_blank"><img src="__PUBLIC__/images/eeyes_work.png"></a>
+    </footer>
+</body>
+</html>
