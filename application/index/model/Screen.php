@@ -12,23 +12,22 @@ class Screen extends Model
      * @param string $title 页面标题
      * @param string $bg 背景图片路径
      * @param int $color 平均颜色
+     * @param string $ip ip地址
      *
      * @return false|int 成功返回id，失败返回false
      */
-    public function createScreen($name, $title, $bg, $color)
+    public function createScreen($name, $title, $bg, $color, $ip)
     {
         $data = [
             'name' => $name,
             'title' => $title,
             'bg' => $bg,
             'color' => $color,
+            'ip' => $ip,
         ];
-        if ($this->getScreen($name)) {
-            // wxscreen作为演示用不可覆盖
-            if ($name == 'wxscreen') {
-                return false;
-            }
-            return $this->save($data, ['name' => $name]);
+        // wxscreen作为演示用不可覆盖
+        if ($name == 'wxscreen') {
+            return false;
         }
         return $this->save($data);
     }
@@ -42,6 +41,6 @@ class Screen extends Model
      */
     public function getScreen($name)
     {
-        return $this->where('name', $name)->find();
+        return $this->where('name', $name)->order('id', 'desc')->find();
     }
 }

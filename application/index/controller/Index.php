@@ -2,7 +2,6 @@
 namespace app\index\controller;
 
 use app\index\model\Screen;
-use think\captcha\Captcha;
 use think\Config;
 use think\Controller;
 use think\Image;
@@ -26,6 +25,9 @@ class Index extends Controller
      */
     public function createScreen()
     {
+        // 获取ip地址
+        $ip = Request::instance()->ip();
+
         // 获取上传的背景图
         $file = Request::instance()->file('image');
         if (!$file) {
@@ -57,6 +59,7 @@ class Index extends Controller
         $color = image_average_color($im);
         imagedestroy($im);
 
+        // 加水印
         Image::open($info->getRealPath())->water(APP_PATH . '../public/images/eeyes_mark.png', Image::WATER_SOUTHEAST, 50)->save($info->getRealPath());
 
         // 获取用户填写的抽奖页面的标题
@@ -73,7 +76,7 @@ class Index extends Controller
 
         // 保存数据
         $Screen = new Screen();
-        $Screen->createScreen($name, $title, $bg, $color);
+        $Screen->createScreen($name, $title, $bg, $color, $ip);
 
         // 跳转到抽奖页面
         $this->redirect(Url::build('index/index/screen', [
