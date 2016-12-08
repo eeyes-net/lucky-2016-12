@@ -7,7 +7,6 @@ use think\Controller;
 use think\exception\HttpException;
 use think\Image;
 use think\Request;
-use think\Response;
 use think\Url;
 
 class Index extends Controller
@@ -122,11 +121,27 @@ class Index extends Controller
         return $this->fetch();
     }
 
+    /**
+     * 获取并缓存图片，然后重定向到缓存
+     *
+     * @param string $url base64编码之后的头像地址
+     */
     public function avatar($url = '')
     {
-        $url = base64_decode($url);
-        if (0 === strpos($url, 'http://cdn.hddpm.com') || 0 === strpos($url, 'http//wx.qlogo.cn')) {
-            return Response::create(http_get($url))->contentType('image/png')->cacheControl('max-age=31536000');
+        $url_decode = base64_decode($url);
+        if (0 === strpos($url_decode, 'http://cdn.hddpm.com') || 0 === strpos($url_decode, 'http//wx.qlogo.cn')) {
+            $avatar_cache_file = '/' . $url . '.png';
+            $avatar_cache_path = Config::get('avatar_tmp_dir') . $avatar_cache_file;
+            if (!file_exists($avatar_cache_path)) {
+                $content = http_get($url_decode);
+                if (!empty($content)) {
+                    file_put_contents($avatar_cache_path, $content);
+                } else {
+                    throw new HttpException(404);
+                }
+            }
+            $this->redirect(Config::get('view_replace_str.__IMG_AVATAR__') . $avatar_cache_file);
+            return;
         }
         throw new HttpException(403);
     }

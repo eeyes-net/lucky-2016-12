@@ -15,10 +15,15 @@ return [
         '__PUBLIC__' => '',
         // 静态资源网址
         '__IMG__' => 'http://img.eeyes.net/lucky',
+        // 头像缓存网址
+        '__IMG_AVATAR__' => 'http://img.eeyes.net/lucky/avatar',
     ],
 
     // 图片上传位置
     'image_upload_dir' => '/www/img-2016-07/lucky',
+
+    // 头像缓存位置
+    'avatar_cache_dir' => '/www/img-2016-07/lucky/avatar',
 
     // 验证码配置
     'captcha' => [
