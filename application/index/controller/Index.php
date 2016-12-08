@@ -131,7 +131,7 @@ class Index extends Controller
         $url_decode = base64_decode($url);
         if (0 === strpos($url_decode, 'http://cdn.hddpm.com') || 0 === strpos($url_decode, 'http//wx.qlogo.cn')) {
             $avatar_cache_file = '/' . $url . '.png';
-            $avatar_cache_path = Config::get('avatar_tmp_dir') . $avatar_cache_file;
+            $avatar_cache_path = Config::get('avatar_cache_dir') . $avatar_cache_file;
             if (!file_exists($avatar_cache_path)) {
                 $content = http_get($url_decode);
                 if (!empty($content)) {
