@@ -28,9 +28,9 @@ header a.logo {
     float: right;
     padding: 0 1em;
     height: 3em;
-    line-height: 3em;
 }
 header img.logo {
+    margin: 1em 0;
     height: 1em;
 }
 header section nav a {
