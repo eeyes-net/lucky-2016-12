@@ -22,6 +22,11 @@
             background-color: rgba({$color.r}, {$color.b}, {$color.g}, .8);
         }
     </style>
+    <script>
+        (window.onresize = function () {
+            document.getElementsByTagName('html')[0].style.fontSize = window.innerHeight + 'px';
+        })();
+    </script>
 </head>
 <body>
     <header>
@@ -32,6 +37,10 @@
         <button id="btn-start">开始抽奖</button>
     </header>
     <main><div id="container"></div></main>
+    <aside id="cover">
+        <img src="__PUBLIC__/images/eeyes_mark.png">
+        <p>用户数据加载中</p>
+    </aside>
     <script src="__PUBLIC__/js/lucky.js"></script>
     <script src="__PUBLIC__/js/script.js"></script>
     <script>

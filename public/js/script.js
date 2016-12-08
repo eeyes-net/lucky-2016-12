@@ -10,7 +10,10 @@
     };
     window.onresize();
     window.init = function (userList) {
-        lucky = new Lucky(document.getElementById('container'), userList, 'box', 'box-big', 'box-final');
+        setTimeout(function () {
+            document.getElementById('cover').style.display = 'none';
+            lucky = new Lucky(document.getElementById('container'), userList, 'box', 'box-big', 'box-final');
+        }, 1500);
     };
     btnStart.addEventListener('click', function () {
         if (isRun) {
