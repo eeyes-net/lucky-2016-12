@@ -4,8 +4,10 @@ namespace app\index\controller;
 use app\index\model\Screen;
 use think\Config;
 use think\Controller;
+use think\exception\HttpException;
 use think\Image;
 use think\Request;
+use think\Response;
 use think\Url;
 
 class Index extends Controller
@@ -118,5 +120,14 @@ class Index extends Controller
         ]);
         $this->assign('user', fetch_user($name));
         return $this->fetch();
+    }
+
+    public function avatar($url = '')
+    {
+        $url = base64_decode($url);
+        if (0 === strpos($url, 'http://cdn.hddpm.com') || 0 === strpos($url, 'http//wx.qlogo.cn')) {
+            return Response::create(http_get($url))->contentType('image/png')->cacheControl('max-age=31536000');
+        }
+        throw new HttpException(403);
     }
 }

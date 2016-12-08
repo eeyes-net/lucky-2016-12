@@ -1,4 +1,6 @@
 <?php
+use think\Url;
+
 /**
  * 取图片的平均颜色
  *
@@ -32,6 +34,8 @@ function image_average_color($im)
 }
 
 /**
+ * 获取用户信息
+ *
  * @param $name string 微信大屏幕名称
  *
  * @return array 头像网址、昵称组成的数组
@@ -52,7 +56,9 @@ function fetch_user($name)
     if ($json) {
         foreach ($json['user_list'] as &$user) {
             $ret[] = [
-                'avatar' => $user['avatar'],
+                'avatar' => Url::build('index/index/avatar', [
+                    'url' => base64_encode($user['avatar']),
+                ]),
                 'name' => html_to_text($user['name']),
             ];
         }
@@ -70,4 +76,22 @@ function fetch_user($name)
 function html_to_text($html)
 {
     return trim(preg_replace('/[\s\0\x0B\xC2\xA0]+/su', ' ', html_entity_decode(preg_replace('/<.*?>/su', ' ', $html))));
+}
+
+/**
+ * @param $url string 目标网址
+ *
+ * @return mixed
+ */
+function http_get($url)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Referer: http://p.quxianchang.com/']);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_ENCODING, 'gzip,deflate');
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+    $content = curl_exec($ch);
+    curl_close($ch);
+    return $content;
 }
