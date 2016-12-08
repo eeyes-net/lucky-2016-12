@@ -33,7 +33,14 @@
                         </tr>
                         <tr>
                             <td>请粘贴微信大屏幕所在网址：</td>
-                            <td><input type="text" name="url" placeholder="如：http://p.wxscreen.com/wxscreen/message"/>
+                            <td>
+                                <input type="text" name="url" placeholder="如：http://p.quxianchang.com/wxscreen/message"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>请输入验证码（点击图片更换）：</td>
+                            <td class="captcha">
+                                <img src="{:captcha_src()}" alt="验证码" id="captcha"><input type="text" name="captcha" placeholder="不区分大小写" autocomplete="off"/>
                             </td>
                         </tr>
                     </tbody>
@@ -45,5 +52,13 @@
     <footer>
         <a href="https://github.com/eeyes-net" target="_blank"><img src="__PUBLIC__/images/eeyes_work.png"></a>
     </footer>
+    <script>
+        (function () {
+            var img = document.getElementById('captcha');
+            img.addEventListener('click', function () {
+                img.src = img.src.split('?')[0] + '?r=' + Math.random();
+            });
+        })();
+    </script>
 </body>
 </html>

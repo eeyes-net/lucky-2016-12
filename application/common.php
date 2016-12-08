@@ -39,7 +39,7 @@ function image_average_color($im)
 function fetch_user($name)
 {
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'http://p.wxscreen.com/' . $name . '/user/sync?state=message');
+    curl_setopt($ch, CURLOPT_URL, 'http://p.quxianchang.com/' . $name . '/user/sync?state=message');
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, ['Accept: application/json, text/javascript, */*; q=0.01']);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

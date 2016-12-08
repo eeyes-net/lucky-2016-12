@@ -25,6 +25,12 @@ class Index extends Controller
      */
     public function createScreen()
     {
+        // 验证码
+        if (!captcha_check(Request::instance()->post('captcha'))) {
+            $this->error('验证码错误');
+            return;
+        }
+
         // 获取ip地址
         $ip = Request::instance()->ip();
 
@@ -67,7 +73,7 @@ class Index extends Controller
 
         // 获取用户填写的微信大屏幕的网址
         $url = Request::instance()->post('url');
-        if (1 === preg_match('/^(http:\\/\\/)?p.wxscreen.com\\/([A-Za-z0-9_-]+?)\\//', $url, $matches)) {
+        if (1 === preg_match('/^(http:\\/\\/)?p.quxianchang.com\\/([A-Za-z0-9_-]+?)\\//', $url, $matches)) {
             $name = $matches[2];
         } else {
             $this->error('微信大屏幕网址必须以http://p.wxscreen.com/开头，并且不能含有特殊字符');

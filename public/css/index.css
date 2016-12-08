@@ -72,6 +72,15 @@ input {
     border: 1px solid #ccc;
     border-radius: .1em;
 }
+.captcha * {
+    vertical-align: middle;
+}
+.captcha img {
+    width: 5em;
+}
+.captcha input {
+    width: 15em;
+}
 input[type="submit"] {
     display: block;
     margin: auto;
